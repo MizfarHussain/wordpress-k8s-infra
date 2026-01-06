@@ -163,3 +163,5 @@ To remove all deployed resources:
 -   All Docker images are built locally for Minikube use.
 -   The deployment is fully reproducible and can be extended for cloud
     environments.
+-   For security, we should store username and password of db in config and configMap
+    
