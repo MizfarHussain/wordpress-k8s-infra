@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: mysql }
+  template:
+    metadata:
+      labels: { app: mysql }
+    spec:
+      containers:
+      - name: mysql
+        image: {{ .Values.mysqlImage }}
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: root
+        - name: MYSQL_DATABASE
+          value: {{ .Values.mysqlDb }}
+        - name: MYSQL_USER
+          value: {{ .Values.mysqlUser }}
+        - name: MYSQL_PASSWORD
+          value: {{ .Values.mysqlPassword }}
+        volumeMounts:
+        - name: dbdata
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: dbdata
+        persistentVolumeClaim:
+          claimName: wp-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+spec:
+  selector: { app: mysql }
+  ports:
+  - port: 3306

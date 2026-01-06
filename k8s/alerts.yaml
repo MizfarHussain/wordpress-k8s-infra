@@ -1,0 +1,10 @@
+groups:
+- name: nginx-alerts
+  rules:
+  - alert: HighPodCPU
+    expr: sum(rate(container_cpu_usage_seconds_total[2m])) > 0.8
+    for: 2m
+
+  - alert: Nginx5xxErrors
+    expr: sum(rate(nginx_http_requests_total{status=~"5.."}[5m])) > 5
+    for: 1m

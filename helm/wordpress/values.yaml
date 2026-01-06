@@ -1,0 +1,7 @@
+mysqlImage: wp-mysql:1.0
+wpImage: wp-app:1.0
+nginxImage: wp-nginx:1.0
+
+mysqlUser: wpuser
+mysqlPassword: wppass
+mysqlDb: wordpress

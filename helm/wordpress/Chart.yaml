@@ -1,0 +1,4 @@
+apiVersion: v2
+name: wordpress-stack
+version: 1.0.0
+description: WordPress + MySQL + Nginx Stack
