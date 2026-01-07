@@ -5,9 +5,6 @@ Kubernetes using Nginx (OpenResty with Lua), MySQL, Persistent Volumes,
 and Helm for deployment. The setup also includes monitoring and alerting
 using Prometheus and Grafana.
 
-This implementation is designed for DevOps and Infrastructure internship
-assignment practice, focusing on clean structure, reproducibility, and
-production-oriented design.
 
 ## Overview
 
@@ -83,7 +80,7 @@ Open the URL in a browser to complete the WordPress installation.
 
 ## Step 5: Deploy Monitoring Stack (Prometheus and Grafana)
 
-Install the Kubernetes monitoring stack:
+Install the Kubernetes monitoring :
 
     helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
     helm repo update
@@ -163,5 +160,5 @@ To remove all deployed resources:
 -   All Docker images are built locally for Minikube use.
 -   The deployment is fully reproducible and can be extended for cloud
     environments.
--   For security, we should store username and password of db in config and configMap
+-   For security, we should store username and password of db in config and configMap in kubernetes
     
